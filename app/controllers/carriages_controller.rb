@@ -1,22 +1,22 @@
-class RoutesController < ApplicationController
-  before_action :set_route, only: [:show, :edit, :update, :destroy]
+class CarriagesController < ApplicationController
+  before_action :set_carriage, only: [:show, :edit, :update, :destroy]
 
   def index
-    @routes = Route.all
+    @carriages = Carriage.all
   end
 
   def show
   end
 
   def new
-    @route = Route.new
+    @carriage = Carriage.new
   end
 
   def create
-    @route = Route.new(route_params)
+    @carriage = Carriage.new(carriage_params)
 
-    if @route.save
-      redirect_to @route
+    if @carriage.save
+      redirect_to @carriage
     else
       render :new
     end
@@ -27,26 +27,26 @@ class RoutesController < ApplicationController
   end
 
   def update
-    if @route.update(route_params)
-      redirect_to @route
+    if @carriage.update(carriage_params)
+      redirect_to @carriage
     else
       render :edit
     end
   end
 
   def destroy
-    @route.destroy
-    redirect_to routes_path
+    @carriage.destroy
+    redirect_to carriage_path
   end
 
   private
 
-  def route_params
-    params.require(:route).permit(:title, railway_station_ids: [])
+  def carriage_params
+    params.require(:carriage).permit(:title)
   end
 
-  def set_route
-    @route = Route.find(params[:id])
+  def set_carriage
+    @carriage = Carriage.find(params[:id])
   end
 
 end
