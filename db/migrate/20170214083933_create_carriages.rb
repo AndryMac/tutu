@@ -6,6 +6,7 @@ class CreateCarriages < ActiveRecord::Migration[5.0]
       t.integer :number_top_place
       t.integer :number_bottom_place
 
+      t.timestamps
     end
   end
 end
