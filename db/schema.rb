@@ -13,7 +13,7 @@
 ActiveRecord::Schema.define(version: 20170214083933) do
 
   create_table "carriages", force: :cascade do |t|
-    t.string   "type"
+    t.string   "type_wagon"
     t.integer  "number_top_place"
     t.integer  "number_bottom_place"
     t.integer  "train_id"
