@@ -11,13 +11,9 @@
 
 <p>
   <% if @route.railway_stations.empty? %>
-      Список пуст
+      На данном маршруте сейчас нет станций. Вы можете <%= link_to 'Добавить', edit_route_path(@route) %>  их.
   <% else %>
-     <ul>
-       <% @route.railway_stations.each do |station| %>
-          <li><%= station.title %> </li>
-       <% end %>
-     </ul>
+      <%= render 'route_stations' %>
   <%end %>
 </p>
 
@@ -29,11 +25,7 @@
   <% if @route.trains.empty? %>
       Поездов на маршруте нет
   <% else %>
-    <ul>
-      <% @route.trains.each do |train| %>
-          <li><%= train.number %> </li>
-      <% end %>
-    </ul>
+      <%= render 'route_trains' %>
 <%end %>
 </p>
 
