@@ -1,0 +1,12 @@
+<ul>
+  <% if @train.carriages.present? %>
+      <% @train.carriages.each do |car| %>
+          <li>ID:<%= car.id %></li>
+          <li>Тип вагона:<%= car.type_wagon %></li>
+          <li>Кол-во верхних мест:<%= car.number_top_place %></li>
+          <li>Кол-во нижних мест:<%= car.number_bottom_place %></li>
+      <% end %>
+  <% else %>
+      Этот поезд еще без вагонов
+  <% end %>
+</ul>
