@@ -22,6 +22,17 @@
   <%end %>
 </p>
 
+<p>
+  <strong>Количество вагонов</strong>
+  <%= @train.carriages.count %>
+</p>
+
+
+<p>
+  <strong>Вагоны</strong>
+  <%= render 'carriage' %>
+</p>
+
 
 <%= link_to 'Редактировать', edit_train_path(@train) %> |
 <%= link_to 'Назад', trains_path %>
