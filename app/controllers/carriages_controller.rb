@@ -36,7 +36,7 @@ class CarriagesController < ApplicationController
 
   def destroy
     @carriage.destroy
-    redirect_to carriage_path
+    redirect_to carriages_path
   end
 
   private
