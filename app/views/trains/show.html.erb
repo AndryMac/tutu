@@ -30,7 +30,28 @@
 
 <p>
   <strong>Вагоны</strong>
-  <%= render 'carriage' %>
+<ul>
+  <% if @train.carriages.present? %>
+    <p>
+      <strong>Кол-во плацкартных вагонов:</strong>
+      <%= @train.carriages.map(&:type_wagon).count("Плацкартный") %>
+    </p>
+    <p>
+      <strong>Кол-во купейных вагонов:</strong>
+      <%= @train.carriages.map(&:type_wagon).count("Купейный") %>
+    </p>
+    <p>
+      <strong>Всего верхних мест</strong>
+      <%= @train.carriages.map(&:number_top_place).reduce(:+) %>
+    <p>
+      <strong>Всего нижних мест:</strong>
+      <%= @train.carriages.map(&:number_bottom_place).reduce(:+) %>
+    </p>
+  <% else %>
+      Этот поезд еще без вагонов
+  <% end %>
+</ul>
+
 </p>
 
 
