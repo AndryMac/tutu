@@ -1,9 +1,10 @@
 <%= form_for(@carriage) do |f| %>
   <%= render 'common/errors', resource: @carriage %>
 
+
      <div class="field">
       <%= f.label 'Тип вагона' %><br>
-      <%= f.select :type_wagon, ["Плацкартный", "Купейный"] %>
+      <%= f.select :type_wagon, Carriage.types %>
     </div>
 
 
