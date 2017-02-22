@@ -11,7 +11,6 @@ class Carriage < ApplicationRecord
     TYPES
   end
 
-  scope :econom_car, -> {where(:type_wagon => 'Плацкарт')}
-  scope :com_car, -> {where(:type_wagon => 'Купе')}
-
+  scope :econom_car, -> {where(type_wagon: 'Плацкарт')}
+  scope :com_car, -> {where(type_wagon: 'Купе')}
 end
