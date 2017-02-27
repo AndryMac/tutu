@@ -1,13 +1,21 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>ID вагона:</strong>
-  <%= @carriage.id %>
+  <strong>Номер вагона:</strong>
+  <%= @carriage.number %>
 </p>
 
 <p>
 <strong>Тип вагона:</strong>
-<%= @carriage.type_wagon %>
+  <% if @carriage.type.eql?('CoupeCarriage') %>
+      <%= 'Купе' %>
+  <% elsif @carriage.type.eql?('EconomCarriage') %>
+      <%= 'Плацкарт' %>
+  <% elsif @carriage.type.eql?('SedentaryCarriage') %>
+      <%= 'Сидячий' %>
+  <% elsif @carriage.type.eql?('SvCarriage') %>
+      <%= 'СВ' %>
+  <% end %>
 </p>
 
 <p>
@@ -15,15 +23,41 @@
   <%= @carriage.train_id %>
 </p>
 
-<p>
-  <strong>Количество нижних мест:</strong>
-  <%= @carriage.number_bottom_place %>
-</p>
 
-<p>
-  <strong>Количество верхних мест:</strong>
-  <%= @carriage.number_top_place %>
-</p>
+<% if @carriage.type.eql?('CoupeCarriage') %>
+    <p>
+      <strong>Количество нижних мест:</strong>
+      <%= @carriage.number_bottom_place %></br>
+      <strong>Количество верхних мест:</strong>
+      <%= @carriage.number_top_place %>
+    </p>
+<% elsif @carriage.type.eql?('EconomCarriage') %>
+    <p>
+      <strong>Количество нижних мест:</strong>
+      <%= @carriage.number_bottom_place %></br>
+      <strong>Количество верхних мест:</strong>
+      <%= @carriage.number_top_place %></br>
+      <strong>Количество нижних боковых мест:</strong>
+      <%= @carriage.number_side_bottom_place %></br>
+      <strong>Количество верхних боковых мест:</strong>
+      <%= @carriage.number_side_top_place %>
+    </p>
+<% elsif @carriage.type.eql?('SedentaryCarriage') %>
+    <p>
+      <strong>Количество сидячих мест:</strong>
+      <%= @carriage.number_seat_place %>
+    </p>
+<% elsif @carriage.type.eql?('SvCarriage') %>
+    <p>
+      <strong>Количество нижних мест:</strong>
+      <%= @carriage.number_bottom_place %></br>
+    </p>
+<% end %>
+
+
+
+
+
 
 <p>
   <% if @carriage.train.nil? %>
