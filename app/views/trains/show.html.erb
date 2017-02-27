@@ -23,34 +23,12 @@
 </p>
 
 <p>
-  <strong>Количество вагонов</strong>
-  <%= @train.carriages.count %>
-</p>
-
-
-<p>
-  <strong>Количество мест:</strong>
-<ul>
-  <% if @train.carriages.present? %>
-    <p>
-      <strong>Плацкарт:</strong></br>
-      Верхних: <%= @train.carriages.econom_car.sum('number_top_place') %></br>
-      Нижних: <%= @train.carriages.econom_car.sum('number_bottom_place') %>
-    </p>
-    <p>
-
-    <p>
-      <strong>Купе:</strong></br>
-      Верхних: <%= @train.carriages.com_car.sum('number_top_place') %> </br>
-      Нижних: <%= @train.carriages.com_car.sum('number_bottom_place') %>
-    </p>
-    <p>
-
+  <strong>Номера вагонов</strong>
+  <% if @train.carriages.empty? %>
+    У поезда нет вагонов
   <% else %>
-      Этот поезд еще без вагонов
+      <%= render 'carriages', carriages: @train.carriages %>
   <% end %>
-</ul>
-
 </p>
 
 
