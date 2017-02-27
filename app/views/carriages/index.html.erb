@@ -5,13 +5,14 @@
 <table>
   <thead>
   <tr>
-    <th>Вагон</th>
-    <th colspan="3"></th>
+    <th>ID вагона</th>
+    <th>Номер вагона</th>
+    <th >Тип вагона</th>
   </tr>
   </thead>
 
   <tbody>
-  <%=  render @carriages %>
+  <%= render partial: "carriage", collection: @carriages %>
   </tbody>
 </table>
 
