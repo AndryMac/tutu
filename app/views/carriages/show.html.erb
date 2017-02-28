@@ -23,41 +23,10 @@
   <%= @carriage.train_id %>
 </p>
 
-
-<% if @carriage.type.eql?('CoupeCarriage') %>
-    <p>
-      <strong>Количество нижних мест:</strong>
-      <%= @carriage.number_bottom_place %></br>
-      <strong>Количество верхних мест:</strong>
-      <%= @carriage.number_top_place %>
-    </p>
-<% elsif @carriage.type.eql?('EconomCarriage') %>
-    <p>
-      <strong>Количество нижних мест:</strong>
-      <%= @carriage.number_bottom_place %></br>
-      <strong>Количество верхних мест:</strong>
-      <%= @carriage.number_top_place %></br>
-      <strong>Количество нижних боковых мест:</strong>
-      <%= @carriage.number_side_bottom_place %></br>
-      <strong>Количество верхних боковых мест:</strong>
-      <%= @carriage.number_side_top_place %>
-    </p>
-<% elsif @carriage.type.eql?('SedentaryCarriage') %>
-    <p>
-      <strong>Количество сидячих мест:</strong>
-      <%= @carriage.number_seat_place %>
-    </p>
-<% elsif @carriage.type.eql?('SvCarriage') %>
-    <p>
-      <strong>Количество нижних мест:</strong>
-      <%= @carriage.number_bottom_place %></br>
-    </p>
-<% end %>
-
-
-
-
-
+<%= render 'coupe_carriage', carriage: @carriage %>
+<%= render 'econom_carriage', carriage: @carriage %>
+<%= render 'sedentary_carriage', carriage: @carriage %>
+<%= render 'sv_carriage', carriage: @carriage %>
 
 <p>
   <% if @carriage.train.nil? %>
