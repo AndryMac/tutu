@@ -1,5 +1,5 @@
 class RailwayStationsController < ApplicationController
-  before_action :set_railway_station, only: [:show, :edit, :update, :destroy]
+  before_action :set_railway_station, only: [:show, :edit, :update, :destroy, :update_position_order]
 
   # GET /railway_stations
   # GET /railway_stations.json
@@ -50,6 +50,17 @@ class RailwayStationsController < ApplicationController
       end
     end
   end
+
+
+  def update_position_order
+    @route = Route.find(params[:route_id])
+    @railway_station.update_position(@route, params)
+    redirect_to routes_path(@route)
+  end
+
+
+
+
 
   # DELETE /railway_stations/1
   # DELETE /railway_stations/1.json
