@@ -3,5 +3,10 @@ Rails.application.routes.draw do
   resources :railway_stations
   resources :routes
   resources :carriages
+
+
+  resources :update_position_order_railway_station
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
+
