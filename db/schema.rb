@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170227102013) do
+ActiveRecord::Schema.define(version: 20170307091044) do
 
   create_table "carriages", force: :cascade do |t|
     t.integer  "number"
@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 20170227102013) do
     t.string   "type"
     t.datetime "created_at",                           null: false
     t.datetime "updated_at",                           null: false
+    t.index ["number", "train_id"], name: "index_carriages_on_number_and_train_id", unique: true
     t.index ["train_id"], name: "index_carriages_on_train_id"
   end
 
