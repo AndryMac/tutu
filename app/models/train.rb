@@ -10,7 +10,7 @@ class Train < ApplicationRecord
   private
 
   def set_number
-    self.number = Train.all.count + 1
+    self.number = Train.count + 1
   end
 
   def count_place(type, place)
