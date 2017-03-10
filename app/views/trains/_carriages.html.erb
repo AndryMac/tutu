@@ -1,0 +1,7 @@
+<ul>
+  <% @train.carriages.ordered(@train.sorting_carriage).each do |carriage| %>
+      <li>
+        <%= link_to "Вагон № #{carriage.number}", carriage_path(carriage) %>
+      </li>
+  <% end %>
+</ul>

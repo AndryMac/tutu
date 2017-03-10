@@ -16,6 +16,11 @@
       <%= f.collection_select :route_id, Route.all, :id, :title %>
     </div>
 
+    <div class="field">
+      <%= f.label :sorting_carriage, 'Нумерация с головы состава' %>
+      <%= f.check_box :sorting_carriage, {checked: true}  %>
+    </div>
+
 
   <div class="actions">
     <%= f.submit "#{@train.new_record? ? 'Добавить поезд' : 'Редактировать поезд'}" %>
