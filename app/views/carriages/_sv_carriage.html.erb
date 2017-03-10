@@ -1,4 +1,4 @@
-<% if @carriage.type.eql?('SvCarriage') %>
+<% if @carriage.sv? %>
     <p>
       <strong>Количество нижних мест:</strong>
       <%= @carriage.number_bottom_place %></br>

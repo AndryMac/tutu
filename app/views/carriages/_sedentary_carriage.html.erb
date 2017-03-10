@@ -1,4 +1,4 @@
-<% if @carriage.type.eql?('SedentaryCarriage') %>
+<% if @carriage.sedentary? %>
     <p>
       <strong>Количество сидячих мест:</strong>
       <%= @carriage.number_seat_place %>

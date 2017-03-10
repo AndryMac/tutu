@@ -4,14 +4,14 @@ class RailwayStation < ApplicationRecord
   has_many :railway_stations_routes
   has_many :routes, through: :railway_stations_routes
 
-  scope :ordered, -> {select('railway_stations.*, railway_stations_routes.possition')
+  scope :ordered, -> {select('railway_stations.*, railway_stations_routes.position')
                       .joins(:railway_stations_routes)
-                      .order('railway_stations_routes.possition').distinct
+                      .order('railway_stations_routes.position').distinct
   }
 
   def update_position(route, params)
     station_route = station_route(route)
-    station_route.update(possition: params[:possition]) if station_route
+    station_route.update(position: params[:position]) if station_route
   end
 
   def position_in(route)

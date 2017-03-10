@@ -1,5 +1,4 @@
 class Carriage < ApplicationRecord
-  validates :number_top_place, :number_bottom_place,  presence: true
   validates :number, uniqueness: { scope: :train_id }
   belongs_to :train
 
@@ -26,7 +25,7 @@ class Carriage < ApplicationRecord
   private
 
   def set_number
-    self.number = (train.carriages.maximum('number') || 0).next
+    self.number = (train.carriages.maximum('number')).next
   end
 
 end

@@ -23,10 +23,9 @@
   <%= @carriage.train_id %>
 </p>
 
-<%= render 'coupe_carriage', carriage: @carriage %>
-<%= render 'econom_carriage', carriage: @carriage %>
-<%= render 'sedentary_carriage', carriage: @carriage %>
-<%= render 'sv_carriage', carriage: @carriage %>
+<%= render @carriage.type.underscore, carriage: @carriage %>
+
+
 
 <p>
   <% if @carriage.train.nil? %>
