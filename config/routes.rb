@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   resources :railway_stations do
    patch :update_position_order, on: :member
+   patch :update_time, on: :member
   end
 
 

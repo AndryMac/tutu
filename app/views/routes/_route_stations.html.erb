@@ -6,5 +6,18 @@
           <%= hidden_field_tag :route_id, @route.id %>
           <%= submit_tag 'Изменить' %>
       <% end %>
+
+
+      <%= form_tag update_time_railway_station_path(station), method: :patch do %>
+          <%= time_field_tag :arrival_time, station.up_time(@route, :arrival_time) %>
+          <%= time_field_tag :departure_time, station.up_time(@route, :departure_time) %>
+          <%= hidden_field_tag :route_id, @route.id %>
+          <%= submit_tag 'Изменить' %>
+      <% end %>
+
+
   <% end %>
+
+
+
 </ul>
