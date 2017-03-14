@@ -1,23 +1,38 @@
-<ul>
+<table>
+  <thead>
+    <tr>
+      <td>Название</td>
+      <td>Позиция</td>
+      <td>Время прибытия</td>
+      <td>Время отправления</td>
+
+    </tr>
+  </thead>
+  <tbody>
   <% @route.railway_stations.ordered.each do |station| %>
-      <li><%= station.title %> </li>
-      <%= form_tag update_position_order_railway_station_path(station), method: :patch do %>
-          <%= number_field_tag :position, station.position_in(@route) %>
-          <%= hidden_field_tag :route_id, @route.id %>
-          <%= submit_tag 'Изменить' %>
-      <% end %>
+      <tr>
+        <td><%= station.title %></td>
+        <td>
+          <%= form_tag update_position_order_railway_station_path(station), method: :patch do %>
+            <%= number_field_tag :position, station.position_in(@route) %>
+            <%= hidden_field_tag :route_id, @route.id %>
+            <%= submit_tag 'Изменить' %>
+          <% end %>
+        </td>
+
+        <%= form_tag update_time_railway_station_path(station), method: :patch do %>
+            <td><%= time_field_tag :arrival_time, station.up_time(@route, :arrival_time) %></td>
+            <td><%= time_field_tag :departure_time, station.up_time(@route, :departure_time) %></td>
+            <%= hidden_field_tag :route_id, @route.id %>
+            <td> <%= submit_tag 'Изменить' %></td>
+        <% end %>
 
 
-      <%= form_tag update_time_railway_station_path(station), method: :patch do %>
-          <%= time_field_tag :arrival_time, station.up_time(@route, :arrival_time) %>
-          <%= time_field_tag :departure_time, station.up_time(@route, :departure_time) %>
-          <%= hidden_field_tag :route_id, @route.id %>
-          <%= submit_tag 'Изменить' %>
-      <% end %>
 
-
+      </tr>
   <% end %>
+  </tbody>
 
 
 
-</ul>
+</table>
