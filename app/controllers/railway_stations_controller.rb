@@ -1,5 +1,6 @@
 class RailwayStationsController < ApplicationController
   before_action :set_railway_station, only: [:show, :edit, :update, :destroy, :update_position_order, :update_time]
+  before_action :set_route, only: [:update_position_order, :update_time]
 
   # GET /railway_stations
   # GET /railway_stations.json
@@ -52,14 +53,13 @@ class RailwayStationsController < ApplicationController
   end
 
   def update_time
-    @route = Route.find(params[:route_id])
+
     @railway_station.update_time(@route, params[:arrival_time], params[:departure_time])
     redirect_to @route
   end
 
 
   def update_position_order
-    @route = Route.find(params[:route_id])
     @railway_station.update_position(@route, params)
     redirect_to routes_path(@route)
   end
@@ -79,6 +79,10 @@ class RailwayStationsController < ApplicationController
   end
 
   private
+
+    def set_route
+      @route = Route.find(params[:route_id])
+    end
     # Use callbacks to share common setup or constraints between actions.
     def set_railway_station
       @railway_station = RailwayStation.find(params[:id])
