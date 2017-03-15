@@ -22,6 +22,15 @@
   <%end %>
 </p>
 
+<p>
+  <strong>Номера вагонов</strong>
+  <% if @train.carriages.empty? %>
+    У поезда нет вагонов
+  <% else %>
+      <%= render 'carriages' %>
+  <% end %>
+</p>
 
+<%= link_to 'Добавить вагон', new_train_carriage_path(@train) %> |
 <%= link_to 'Редактировать', edit_train_path(@train) %> |
 <%= link_to 'Назад', trains_path %>

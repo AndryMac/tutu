@@ -1,0 +1,18 @@
+<tr>
+  <td><%= carriage.id %></td>
+  <td><%= carriage.number %></td>
+  <td>
+    <% if carriage.type.eql?('CoupeCarriage') %>
+        <%= 'Купе' %>
+    <% elsif carriage.type.eql?('EconomCarriage') %>
+        <%= 'Плацкарт' %>
+    <% elsif carriage.type.eql?('SedentaryCarriage') %>
+        <%= 'Сидячий' %>
+    <% elsif carriage.type.eql?('SvCarriage') %>
+        <%= 'СВ' %>
+    <% end %>
+  </td>
+  <td><%= link_to 'Показать', carriage_path(carriage) %></td>
+  <td><%= link_to 'Редактировать', edit_carriage_path(carriage) %></td>
+  <td><%= link_to 'Удалить', carriage_path(carriage), method: :delete, data: { confirm: 'Точно удалить?' } %></td>
+</tr>

@@ -10,7 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170206073931) do
+ActiveRecord::Schema.define(version: 20170314121240) do
+
+  create_table "carriages", force: :cascade do |t|
+    t.integer  "number",                   default: 0
+    t.integer  "number_top_place",         default: 0
+    t.integer  "number_bottom_place",      default: 0
+    t.integer  "number_side_bottom_place", default: 0
+    t.integer  "number_side_top_place",    default: 0
+    t.integer  "number_seat_place",        default: 0
+    t.integer  "train_id"
+    t.string   "type"
+    t.datetime "created_at",                           null: false
+    t.datetime "updated_at",                           null: false
+    t.index ["number", "train_id"], name: "index_carriages_on_number_and_train_id", unique: true
+    t.index ["train_id"], name: "index_carriages_on_train_id"
+  end
 
   create_table "railway_stations", force: :cascade do |t|
     t.string   "title"
@@ -21,6 +36,9 @@ ActiveRecord::Schema.define(version: 20170206073931) do
   create_table "railway_stations_routes", force: :cascade do |t|
     t.integer "railway_station_id"
     t.integer "route_id"
+    t.integer "position"
+    t.time    "arrival_time"
+    t.time    "departure_time"
   end
 
   create_table "routes", force: :cascade do |t|
@@ -37,6 +55,8 @@ ActiveRecord::Schema.define(version: 20170206073931) do
     t.integer  "user_id"
     t.integer  "start_station_id"
     t.integer  "end_station_id"
+    t.string   "passenger_name"
+    t.string   "passenger_number"
     t.index ["end_station_id"], name: "index_tickets_on_end_station_id"
     t.index ["start_station_id"], name: "index_tickets_on_start_station_id"
     t.index ["train_id"], name: "index_tickets_on_train_id"
@@ -49,6 +69,7 @@ ActiveRecord::Schema.define(version: 20170206073931) do
     t.datetime "updated_at",         null: false
     t.integer  "current_station_id"
     t.integer  "route_id"
+    t.boolean  "sorting_carriage"
     t.index ["current_station_id"], name: "index_trains_on_current_station_id"
     t.index ["route_id"], name: "index_trains_on_route_id"
   end
