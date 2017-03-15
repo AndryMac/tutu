@@ -26,21 +26,7 @@
           </tr>
           </thead>
           <tbody>
-
-          <% @search.result.each do |train| %>
-              <tr>
-              <td><%= train.number %></td>
-              <td><%= train.route.title %></td>
-              <td><%= @search.start_station.up_time(train.route, :arrival_time) %></td>
-              <td><%= @search.end_station.up_time(train.route, :departure_time) %></td>
-              <td>
-                 <%= form_tag new_ticket_path, method: :get do %>
-                    <%= link_to 'Купить билет', new_ticket_path(train_id: train.id, start_station_id: @search.start_station_id,
-                        end_station_id: @search.end_station_id ) %>
-                 <% end %>
-              </td>
-              </tr>
-          <% end %>
+          <%= render 'result' %>
           </tbody>
         </table>
     <% end %>
