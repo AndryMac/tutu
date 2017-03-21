@@ -1,5 +1,3 @@
-<p id="notice"><%= notice %></p>
-
 <p>
  <strong>Номер поезда:</strong>
  <%= @ticket.train.number %>
@@ -26,4 +24,5 @@
   <%= @ticket.passenger_number %>
 </p>
 
+<%= link_to 'Список билетов', tickets_path %> |
 <%= link_to 'Поиск', search_path %>
