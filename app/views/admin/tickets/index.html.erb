@@ -1,4 +1,16 @@
 <h1>Список билетов</h1>
-<%= render @tickets %>
+
+<table>
+  <thead>
+  <th>№ поезда</th>
+  <th>Станция отпрв.</th>
+  <th>Станция назн.</th>
+  <th>ФИО</th>
+  <th>Паспорт</th>
+  </thead>
+  <tbody>
+    <%= render partial: 'tickets', collection: @tickets %>
+  </tbody>
+  </table>
 
 <%= link_to 'Купить билет', new_admin_ticket_path %>
