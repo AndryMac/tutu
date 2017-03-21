@@ -16,7 +16,7 @@ class Admin::TicketsController < Admin::BaseController
     @ticket = current_user.tickets.new(ticket_params)
 
     if @ticket.save
-      TicketsMailer.buy_ticket(currnet_user, @ticket).deliver_now
+      @ticket = current_user.tickets.new(ticket_params)
       redirect_to @ticket
     else
       render :new
