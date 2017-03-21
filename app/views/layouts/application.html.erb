@@ -14,8 +14,9 @@
   <p class="alert"><%= alert %></p>
 
   <% if user_signed_in?  %>
+      <p>Добро пожаловать: <%= current_user.first_name  %> <%= current_user.last_name  %></p>
       <%= link_to "Выйти",  destroy_user_session_path, method: :delete %>
-      <p>Аккаунт: <%= current_user.email  %></p>
+
   <% else %>
       <%= link_to "Войти",  new_user_session_path %>
   <% end %>
