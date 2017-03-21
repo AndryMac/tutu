@@ -1,4 +1,4 @@
-class TrainsController < ApplicationController
+class Admin::TrainsController < Admin::BaseController
   before_action :set_train, only: [:show, :edit, :update, :destroy]
 
   # GET /trains
@@ -26,39 +26,31 @@ class TrainsController < ApplicationController
   def create
     @train = Train.new(train_params)
 
-    respond_to do |format|
+
       if @train.save
-        format.html { redirect_to @train, notice: 'Train was successfully created.' }
-        format.json { render :show, status: :created, location: @train }
+        redirect_to admin_trains_path(@train)
       else
-        format.html { render :new }
-        format.json { render json: @train.errors, status: :unprocessable_entity }
+         render :new
       end
-    end
   end
 
   # PATCH/PUT /trains/1
   # PATCH/PUT /trains/1.json
   def update
-    respond_to do |format|
+
       if @train.update(train_params)
-        format.html { redirect_to @train, notice: 'Train was successfully updated.' }
-        format.json { render :show, status: :ok, location: @train }
+        redirect_to admin_trains_path(@train)
       else
-        format.html { render :edit }
-        format.json { render json: @train.errors, status: :unprocessable_entity }
+        render :edit
       end
-    end
+
   end
 
   # DELETE /trains/1
   # DELETE /trains/1.json
   def destroy
     @train.destroy
-    respond_to do |format|
-      format.html { redirect_to trains_url, notice: 'Train was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    redirect_to admin_trains_path
   end
 
   private

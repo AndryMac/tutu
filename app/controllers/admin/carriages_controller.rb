@@ -1,4 +1,4 @@
-class CarriagesController < ApplicationController
+class Admin::CarriagesController < Admin::BaseController
   before_action :set_carriage, only: [:show, :edit, :update, :destroy]
   before_action :set_train, only: [:new, :create]
 
@@ -18,7 +18,7 @@ class CarriagesController < ApplicationController
     @carriage = @train.carriages.new(carriage_params)
 
       if @carriage.save
-        redirect_to  @train
+        redirect_to  admin_trains_path(@train)
       else
         render :new
       end
@@ -30,7 +30,7 @@ class CarriagesController < ApplicationController
 
     def update
     if @carriage.update(carriage_params)
-      redirect_to carriage_path(@carriage)
+      redirect_to admin_train_carriages_path(@carriage)
     else
       render :edit
     end
@@ -38,7 +38,7 @@ class CarriagesController < ApplicationController
 
   def destroy
     @carriage.destroy
-    redirect_to @carriage
+    redirect_to admin_train_carriages_path(@carriage)
   end
 
   private
