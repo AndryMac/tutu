@@ -1,4 +1,3 @@
-<p id="notice"><%= notice %></p>
 
 <p>
   <strong>Номер вагона:</strong>
@@ -37,5 +36,5 @@
 
 
 
-<%= link_to 'Редактировать', edit_carriage_path(@carriage) %> |
-<%= link_to 'Назад', @carriage.train %>
+<%= link_to 'Редактировать', edit_admin_carriage_path(@carriage) %> |
+<%= link_to 'Назад', admin_train_carriages_path(@carriage.train) %>

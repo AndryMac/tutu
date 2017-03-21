@@ -1,5 +1,3 @@
-<p id="notice"><%= notice %></p>
-
 <p>
   <strong>Путь:</strong>
   <%= @route.title %>
@@ -11,7 +9,7 @@
 
 <p>
   <% if @route.railway_stations.empty? %>
-      На данном маршруте сейчас нет станций. Вы можете <%= link_to 'Добавить', edit_route_path(@route) %>  их.
+      На данном маршруте сейчас нет станций. Вы можете <%= link_to 'Добавить', edit_admin_route_path(@route) %>  их.
   <% else %>
       <%= render 'route_stations' %>
   <%end %>
@@ -30,5 +28,5 @@
 </p>
 
 
-<%= link_to 'Редактировать', edit_route_path(@route) %> |
-<%= link_to 'Назад', routes_path %>
+<%= link_to 'Редактировать', edit_admin_route_path(@route) %> |
+<%= link_to 'Назад', admin_routes_path %>

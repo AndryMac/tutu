@@ -12,7 +12,7 @@
         <%= 'СВ' %>
     <% end %>
   </td>
-  <td><%= link_to 'Показать', carriage_path(carriage) %></td>
-  <td><%= link_to 'Редактировать', edit_carriage_path(carriage) %></td>
-  <td><%= link_to 'Удалить', carriage_path(carriage), method: :delete, data: { confirm: 'Точно удалить?' } %></td>
+  <td><%= link_to 'Показать', admin_carriage_path(carriage) %></td>
+  <td><%= link_to 'Редактировать', edit_admin_carriage_path(carriage) %></td>
+  <td><%= link_to 'Удалить', admin_carriage_path(carriage), method: :delete, data: { confirm: 'Точно удалить?' } %></td>
 </tr>
