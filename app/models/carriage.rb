@@ -25,7 +25,7 @@ class Carriage < ApplicationRecord
   private
 
   def set_number
-    self.number = (train.carriages.maximum('number')).next
+    self.number = (train.carriages.maximum('number') || 0).next
   end
 
 end
