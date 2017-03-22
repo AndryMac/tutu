@@ -1,0 +1,34 @@
+<h1>Поиск билетов</h1>
+
+<%= form_for(@search, method: :post, url: search_path) do |f| %>
+    <div class="field">
+       <%= f.label :start_station_id, 'Станция отправления' %>
+        <%= f.collection_select :start_station_id, RailwayStation.all, :id, :title %>
+    </div>
+    <div class="field">
+      <%= f.label :end_station_id, 'Станция прибытия' %>
+      <%= f.collection_select :end_station_id, RailwayStation.all, :id, :title %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit 'Поиск' %>
+    </div>
+
+    <% if @search.result %>
+        <h2><%= 'Список доступных поездов:' %></h2>
+        <table>
+          <thead align="center">
+          <tr>
+              <td><%= 'Поезд' %></td>
+              <td><%= 'Маршрут' %></td>
+              <td><%= 'Время отправления' %></td>
+              <td><%= 'Время прибытия' %></td>
+          </tr>
+          </thead>
+          <tbody>
+          <%= render 'result' %>
+          </tbody>
+        </table>
+    <% end %>
+
+<% end %>

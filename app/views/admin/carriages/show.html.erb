@@ -1,0 +1,40 @@
+
+<p>
+  <strong>Номер вагона:</strong>
+  <%= @carriage.number %>
+</p>
+
+<p>
+<strong>Тип вагона:</strong>
+  <% if @carriage.type.eql?('CoupeCarriage') %>
+      <%= 'Купе' %>
+  <% elsif @carriage.type.eql?('EconomCarriage') %>
+      <%= 'Плацкарт' %>
+  <% elsif @carriage.type.eql?('SedentaryCarriage') %>
+      <%= 'Сидячий' %>
+  <% elsif @carriage.type.eql?('SvCarriage') %>
+      <%= 'СВ' %>
+  <% end %>
+</p>
+
+<p>
+  <strong>ID Поезда:</strong>
+  <%= @carriage.train_id %>
+</p>
+
+<%= render @carriage.type.underscore, carriage: @carriage %>
+
+
+
+<p>
+  <% if @carriage.train.nil? %>
+      Вагон еще не прицеплен
+  <% else %>
+      Вагон прицеплен к поезду номер: <%= @carriage.train.number %></p>
+  <%end %>
+  </p>
+
+
+
+<%= link_to 'Редактировать', edit_admin_carriage_path(@carriage) %> |
+<%= link_to 'Назад', admin_train_carriages_path(@carriage.train) %>

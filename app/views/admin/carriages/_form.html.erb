@@ -1,0 +1,46 @@
+<%= form_for [:admin, @train, carriage.becomes(Carriage)] do |f| %>
+  <%= render 'common/errors', resource: @carriage %>
+
+     <div class="field">
+      <%= f.label 'Тип вагона' %><br>
+      <%= f.select :type, Carriage::TYPES.values %>
+        </div>
+
+
+    <div class="field">
+      <%= f.label 'Количество верхних мест' %><br>
+      <%= f.number_field :number_top_place %>
+    </div>
+
+    <div class="field">
+      <%= f.label 'Количество нижних мест' %><br>
+      <%= f.number_field :number_bottom_place %>
+    </div>
+
+
+    <div class="field">
+      <%= f.label 'Количество верхних боковых мест' %><br>
+      <%= f.number_field :number_side_top_place %>
+    </div>
+
+    <div class="field">
+      <%= f.label 'Количество нижних боковых мест' %><br>
+      <%= f.number_field :number_side_bottom_place %>
+    </div>
+
+    <div class="field">
+      <%= f.label 'Количество сидячих мест' %><br>
+      <%= f.number_field :number_seat_place %>
+    </div>
+
+
+    <div class="field">
+      <%= f.label :train, "Номер поезда" %>
+      <%= f.collection_select :train_id, Train.all, :id, :number %>
+    </div>
+
+
+    <div class="actions">
+      <%= f.submit "#{@carriage.new_record? ? 'Создать вагон' : 'Изменить вагон'}"  %>
+    </div>
+<% end %>

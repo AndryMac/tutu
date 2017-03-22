@@ -1,0 +1,28 @@
+<p>
+ <strong>Номер поезда:</strong>
+ <%= @ticket.train.number %>
+</p>
+
+<p>
+  <strong>Начальня станция:</strong>
+  <%= @ticket.start_station.title %>
+</p>
+
+<p>
+  <strong>Начальня станция:</strong>
+  <%= @ticket.end_station.title %>
+</p>
+
+<p>
+  <strong>Имя пассажира:</strong>
+  <%= @ticket.passenger_name %>
+</p>
+
+
+<p>
+  <strong>Паспорт пассажира:</strong>
+  <%= @ticket.passenger_number %>
+</p>
+
+<%= link_to 'Список билетов', tickets_path %> |
+<%= link_to 'Поиск', search_path %>
