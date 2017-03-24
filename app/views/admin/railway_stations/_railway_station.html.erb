@@ -1,0 +1,6 @@
+<tr>
+  <td><%= railway_station.title %></td>
+  <td><%= link_to t('.show'), [:admin, railway_station], class: 'btn btn-success', type: "button" %></td>
+  <td><%= link_to t('.edit'), edit_admin_railway_station_path(railway_station), class: 'btn btn-success', type: "button" %></td>
+  <td><%= link_to t('.destroy'), [:admin, railway_station], method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger', type: "button" %></td>
+</tr>

@@ -1,0 +1,38 @@
+<%= form_for [:admin, @ticket] do |f| %>
+        <%= render 'common/errors', resource: @ticket %>
+
+        <div class="field">
+        <%= f.label :start_station_id, 'Станция отправления' %>
+        <%= f.collection_select :start_station_id, RailwayStation.all, :id, :title,{}, {:class => 'form-control'} %>
+      </div>
+
+        <div class="field">
+        <%= f.label :end_station_id, 'Станция прибытия' %>
+        <%= f.collection_select :end_station_id, RailwayStation.all, :id, :title,{}, {:class => 'form-control'} %>
+      </div>
+
+        <div class="field">
+        <%= f.label :passenger_name, 'ФИО' %>
+        <%= f.text_field :passenger_name, class:'form-control' %>
+      </div>
+
+        <div class="field">
+        <%= f.label :passenger_number, 'Данные паспорта' %>
+        <%= f.text_field :passenger_number, class:'form-control' %>
+      </div>
+
+        <div class="field">
+        <%= f.label :train_id, 'Поезд' %>
+        <%= f.collection_select :train_id, Train.all, :id, :number,{}, {:class => 'form-control'} %>
+      </div>
+
+        <div class="field">
+        <%= f.label :user_id, 'Пользователь' %>
+        <%= f.collection_select :user_id, User.all, :id, :email, {}, {:class => 'form-control'} %>
+      </div>
+
+        <div class="actions">
+        <%= f.submit "#{@ticket.new_record? ? 'Купить' : 'Изменить'}", class: 'btn btn-success', type: "button" %>
+      </div>
+
+    <% end %>

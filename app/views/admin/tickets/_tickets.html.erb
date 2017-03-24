@@ -1,0 +1,11 @@
+<tr>
+  <td><%= tickets.train.number %></td>
+  <td><%= tickets.start_station.title %></td>
+  <td><%= tickets.end_station.title %></td>
+  <td><%= tickets.passenger_name %><td>
+  <td><%= tickets.passenger_number %></td>
+
+  <td><%= link_to 'Просмотреть', [:admin, tickets], class: 'btn btn-success', type: "button" %></td>
+  <td><%= link_to 'Редактировать', edit_admin_ticket_path(tickets), class: 'btn btn-success', type: "button" %></td>
+  <td><%= link_to 'Удалить билет', [:admin, tickets], method: :delete, data: { confirm: 'Вы точно хотите удалить билет?' }, class: 'btn btn-danger', type: "button" %></td>
+</tr>

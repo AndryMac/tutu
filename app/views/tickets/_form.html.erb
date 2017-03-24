@@ -1,0 +1,21 @@
+<%= form_for (@ticket) do |f| %>
+  <%= render 'common/errors', resource: @ticket %>
+
+  <%= f.hidden_field :train_id %>
+  <%= f.hidden_field :start_station_id %>
+  <%= f.hidden_field :end_station_id %>
+
+  <div class="field">
+     <%= f.label :passenger_name, 'ФИО' %>
+     <%= f.text_field :passenger_name, class: 'form-control' %>
+  </div>
+
+  <div class="field">
+     <%= f.label :passenger_number, 'Данные паспорта' %>
+     <%= f.text_field :passenger_number, class: 'form-control' %>
+  </div>
+
+  <div class="actions">
+     <%= f.submit 'Купить', class: 'btn btn-success', type: "button" %>
+  </div>
+<% end %>

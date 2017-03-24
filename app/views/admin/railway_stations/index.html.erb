@@ -1,0 +1,19 @@
+
+<h1>Список станций</h1>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Название станции</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <%= render @railway_stations %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Добавить новую станцию', new_admin_railway_station_path, class: 'btn btn-success', type: "button" %>

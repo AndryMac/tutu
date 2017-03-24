@@ -1,0 +1,32 @@
+<p>
+  <strong>Путь:</strong>
+  <%= @route.title %>
+</p>
+
+<p>
+  <strong>Станции в маршруте:</strong>
+</p>
+
+<p>
+  <% if @route.railway_stations.empty? %>
+      На данном маршруте сейчас нет станций. Вы можете <%= link_to 'Добавить', edit_admin_route_path(@route) %>  их.
+  <% else %>
+      <%= render 'route_stations' %>
+  <%end %>
+</p>
+
+
+<p>
+  <strong>Поезда на маршруте:</strong>
+</p>
+<p>
+  <% if @route.trains.empty? %>
+      Поездов на маршруте нет
+  <% else %>
+      <%= render 'route_trains' %>
+<%end %>
+</p>
+
+
+<%= link_to 'Редактировать', edit_admin_route_path(@route), class: 'btn btn-success', type: "button" %>
+<%= link_to 'Назад', admin_routes_path, class: 'btn btn-success', type: "button" %>

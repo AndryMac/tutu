@@ -1,0 +1,6 @@
+<tr>
+  <td><%= train.number %></td>
+  <td><%= link_to 'Show', [:admin, train], class: 'btn btn-success', type: "button" %></td>
+  <td><%= link_to 'Edit', edit_admin_train_path(train), class: 'btn btn-success', type: "button" %></td>
+  <td><%= link_to 'Destroy', [:admin, train], method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger', type: "button" %></td>
+</tr>
