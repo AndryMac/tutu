@@ -3,10 +3,10 @@
 
   <div class="field">
     <%= f.label :title %>
-    <%= f.text_field :title %>
+    <%= f.text_field :title, class: "form-control" %>
   </div>
 
   <div class="actions">
-    <%= f.submit "#{@railway_station.new_record? ? 'Добавить станцию' : 'Редактировать станцию'}" %>
+    <%= f.submit t('.submit', action: @railway_station.new_record? ? 'Добавить' : 'Редактировать' ), class: 'btn btn-success', type: "button"%>
   </div>
 <% end %>

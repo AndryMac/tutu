@@ -1,7 +1,7 @@
 
 <h1>Список станций</h1>
 
-<table>
+<table class="table table-striped">
   <thead>
     <tr>
       <th>Название станции</th>
@@ -16,4 +16,4 @@
 
 <br>
 
-<%= link_to 'Добавить новую станцию', new_admin_railway_station_path %>
+<%= link_to 'Добавить новую станцию', new_admin_railway_station_path, class: 'btn btn-success', type: "button" %>

@@ -7,15 +7,15 @@
 
   <div class="field">
      <%= f.label :passenger_name, 'ФИО' %>
-     <%= f.text_field :passenger_name %>
+     <%= f.text_field :passenger_name, class: 'form-control' %>
   </div>
 
   <div class="field">
      <%= f.label :passenger_number, 'Данные паспорта' %>
-     <%= f.text_field :passenger_number %>
+     <%= f.text_field :passenger_number, class: 'form-control' %>
   </div>
 
   <div class="actions">
-     <%= f.submit 'Купить' %>
+     <%= f.submit 'Купить', class: 'btn btn-success', type: "button" %>
   </div>
 <% end %>

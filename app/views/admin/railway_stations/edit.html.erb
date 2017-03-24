@@ -2,5 +2,5 @@
 
 <%= render 'form', railway_station: @railway_station %>
 
-<%= link_to 'Посмотреть', @railway_station %> |
-<%= link_to 'Назад', admin_railway_stations_path %>
+<%= link_to 'Посмотреть', [:admin, @railway_station], class: 'btn btn-success', type: "button" %>
+<%= link_to 'Назад', admin_railway_stations_path, class: 'btn btn-success', type: "button" %>

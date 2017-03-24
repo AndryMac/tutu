@@ -1,6 +1,6 @@
-<h1>Добавить маршрут</h1>
+<h1><%= t('.title') %></h1>
 
 <%= render 'form', route: @route %>
 
 
-<%= link_to 'Назад', admin_routes_path %>
+<%= link_to 'Назад', admin_routes_path, class: 'btn btn-success', type: "button" %>

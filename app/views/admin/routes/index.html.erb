@@ -1,6 +1,6 @@
 <h1>Список маршрутов</h1>
 
-<table>
+<table class="table table-striped" >
   <thead>
   <tr>
     <th>Маршрут</th>
@@ -12,9 +12,9 @@
   <% @routes.each do |route| %>
       <tr>
         <td><%= route.title %></td>
-        <td><%= link_to 'Показать', [:admin, route] %></td>
-        <td><%= link_to 'Редактировать', edit_admin_route_path(route) %></td>
-        <td><%= link_to 'Удалить', [:admin, route], method: :delete, data: { confirm: 'Точно удалить?' } %></td>
+        <td><%= link_to 'Показать', [:admin, route], class: 'btn btn-success', type: "button" %></td>
+        <td><%= link_to 'Редактировать', edit_admin_route_path(route), class: 'btn btn-success', type: "button" %></td>
+        <td><%= link_to 'Удалить', [:admin, route], method: :delete, data: { confirm: 'Точно удалить?'}, class: 'btn btn-danger', type: "button"  %></td>
       </tr>
   <% end %>
   </tbody>
@@ -22,4 +22,4 @@
 
 <br>
 
-<%= link_to 'Добавить новый маршрут', new_admin_route_path %>
+<%= link_to 'Добавить новый маршрут', new_admin_route_path, class: 'btn btn-success', type: "button" %>

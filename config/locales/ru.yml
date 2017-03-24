@@ -1,0 +1,19 @@
+ru:
+  common:
+    back: 'Назад'
+    errors: 'При заполнении формы возникли ошибки'
+  admin:
+    railway_stations:
+      new:
+        title: 'Новая станция'
+      form:
+        submit: '%{action} станцию'
+      railway_station:
+        show: 'Посмотреть'
+        edit: 'Редактировать'
+        destroy: 'Удалить'
+    routes:
+      form:
+        submit: '%{action} маршрут'
+      new:
+        title: 'Новый маршрут'

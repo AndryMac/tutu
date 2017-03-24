@@ -1,7 +1,7 @@
 
 <h1>Список вагонов</h1>
 
-<table>
+<table class="table table-striped">
   <thead>
   <tr>
     <th>ID вагона</th>
@@ -17,4 +17,4 @@
 
 <br>
 
-<%= link_to 'Добавить новый вагон', new_admin_train_carriage_path %>
+<%= link_to 'Добавить новый вагон', new_admin_train_carriage_path, class: 'btn btn-success', type: "button" %>

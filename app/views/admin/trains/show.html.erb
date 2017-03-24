@@ -1,35 +1,48 @@
-
-<p>
+<div class="col-lg-3">
+<p class="bg-info">
   <strong>Номер поезда:</strong>
+</p>
+  <p>
   <%= @train.number %>
 </p>
-<p>
+</div>
+<div class="col-lg-3">
+<p class="bg-info">
   <strong>На станции</strong>
+</p>
+<p>
   <% if @train.current_station.present? %>
     <%= @train.current_station.title %>
   <% else %>
     Не указано
   <%end %>
 </p>
+</div>
+<div class="col-lg-3">
 
-<p>
-  <strong>Маршрут</strong>
+  <p class="bg-info"><strong >Маршрут</strong></p>
+  <p>
   <% if @train.route.present? %>
       <%= @train.route.title %>
   <% else %>
       Маршрут еще не назначен
   <%end %>
 </p>
-
-<p>
+</div>
+<div class="col-lg-3">
+<p class="bg-info">
   <strong>Номера вагонов</strong>
+</p>
+  <p>
   <% if @train.carriages.empty? %>
     У поезда нет вагонов
   <% else %>
       <%= render 'carriages' %>
   <% end %>
 </p>
-
-<%= link_to 'Добавить вагон', new_admin_train_carriage_path(@train) %> |
-<%= link_to 'Редактировать', edit_admin_train_path(@train) %> |
-<%= link_to 'Назад', admin_trains_path %>
+</div>
+<div class="col-lg-12">
+<%= link_to 'Добавить вагон', new_admin_train_carriage_path(@train),class: 'btn btn-success', type: "button"  %>
+<%= link_to 'Редактировать', edit_admin_train_path(@train), class: 'btn btn-success', type: "button"  %>
+<%= link_to 'Назад', admin_trains_path, class: 'btn btn-success', type: "button"  %>
+</div>

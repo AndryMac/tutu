@@ -1,6 +1,6 @@
 <h1>Список билетов</h1>
 
-<table>
+<table class="table table-striped">
   <thead>
   <th>№ поезда</th>
   <th>Станция отпрв.</th>
@@ -13,4 +13,4 @@
   </tbody>
   </table>
 
-<%= link_to 'Купить билет', new_admin_ticket_path %>
+<%= link_to 'Купить билет', new_admin_ticket_path, class: 'btn btn-success', type: "button" %>

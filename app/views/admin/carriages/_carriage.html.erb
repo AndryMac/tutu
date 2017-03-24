@@ -3,16 +3,16 @@
   <td><%= carriage.number %></td>
   <td>
     <% if carriage.type.eql?('CoupeCarriage') %>
-        <%= 'Купе' %>
+        <%= "Купе" %>
     <% elsif carriage.type.eql?('EconomCarriage') %>
-        <%= 'Плацкарт' %>
+        <%= "Плацкарт" %>
     <% elsif carriage.type.eql?('SedentaryCarriage') %>
-        <%= 'Сидячий' %>
+        <%= "Сидячий" %>
     <% elsif carriage.type.eql?('SvCarriage') %>
-        <%= 'СВ' %>
+        <%= "СВ" %>
     <% end %>
   </td>
-  <td><%= link_to 'Показать', admin_carriage_path(carriage) %></td>
-  <td><%= link_to 'Редактировать', edit_admin_carriage_path(carriage) %></td>
-  <td><%= link_to 'Удалить', admin_carriage_path(carriage), method: :delete, data: { confirm: 'Точно удалить?' } %></td>
+  <td><%= link_to 'Показать', admin_carriage_path(carriage), class: "btn btn-success" %></td>
+  <td><%= link_to 'Редактировать', edit_admin_carriage_path(carriage), class: "btn btn-success" %></td>
+  <td><%= link_to 'Удалить', admin_carriage_path(carriage), method: :delete, data: { confirm: 'Точно удалить?' }, class:"btn btn-danger" %></td>
 </tr>

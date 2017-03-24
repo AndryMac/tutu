@@ -3,15 +3,16 @@
 
     <div class="field">
       <%= f.label :title %>
-      <%= f.text_field :title %>
+      <%= f.text_field :title, class: "form-control" %>
     </div>
 
     <div class="field">
       <%= f.label :railway_station_ids %>
-      <%= f.collection_select :railway_station_ids, RailwayStation.all, :id, :title, {}, { multiple: true } %>
+      <%= f.collection_select :railway_station_ids, RailwayStation.all, :id, :title, {}, { multiple: true, class: 'form-control' } %>
     </div>
 
     <div class="actions">
-      <%= f.submit "#{@route.new_record? ? 'Создать маршрут' : 'Изменить маршрут'}"  %>
+
+      <%= f.submit t('.submit', action: @route.new_record? ? 'Добавить' : 'Редактировать' ), class: 'btn btn-success', type: "button"  %>
     </div>
 <% end %>

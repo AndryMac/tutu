@@ -3,44 +3,44 @@
 
      <div class="field">
       <%= f.label 'Тип вагона' %><br>
-      <%= f.select :type, Carriage::TYPES.values %>
+      <%= f.select :type, Carriage::TYPES.values,{}, {:class => 'form-control'} %>
         </div>
 
 
     <div class="field">
       <%= f.label 'Количество верхних мест' %><br>
-      <%= f.number_field :number_top_place %>
+      <%= f.number_field :number_top_place, class: "form-control" %>
     </div>
 
     <div class="field">
       <%= f.label 'Количество нижних мест' %><br>
-      <%= f.number_field :number_bottom_place %>
+      <%= f.number_field :number_bottom_place, class: "form-control" %>
     </div>
 
 
     <div class="field">
       <%= f.label 'Количество верхних боковых мест' %><br>
-      <%= f.number_field :number_side_top_place %>
+      <%= f.number_field :number_side_top_place, class: "form-control" %>
     </div>
 
     <div class="field">
       <%= f.label 'Количество нижних боковых мест' %><br>
-      <%= f.number_field :number_side_bottom_place %>
+      <%= f.number_field :number_side_bottom_place, class: "form-control" %>
     </div>
 
     <div class="field">
       <%= f.label 'Количество сидячих мест' %><br>
-      <%= f.number_field :number_seat_place %>
+      <%= f.number_field :number_seat_place, class: "form-control" %>
     </div>
 
 
     <div class="field">
       <%= f.label :train, "Номер поезда" %>
-      <%= f.collection_select :train_id, Train.all, :id, :number %>
+      <%= f.collection_select :train_id, Train.all, :id, :number,{}, {:class => 'form-control'} %>
     </div>
 
 
     <div class="actions">
-      <%= f.submit "#{@carriage.new_record? ? 'Создать вагон' : 'Изменить вагон'}"  %>
+      <%= f.submit "#{@carriage.new_record? ? 'Создать вагон' : 'Изменить вагон'}", class: 'btn btn-success', type: "button"  %>
     </div>
 <% end %>
